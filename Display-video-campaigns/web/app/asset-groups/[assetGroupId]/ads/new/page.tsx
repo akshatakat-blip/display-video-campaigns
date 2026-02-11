@@ -450,7 +450,7 @@ export default function NewAdPage({ params }: { params: { assetGroupId: string }
                 value={newAd.inputType}
                 onChange={(e) => {
                   setNewAd({ ...newAd, inputType: e.target.value as AdInputType });
-                  setFile(null);
+                 setFile(undefined);
                   if (objectUrlRef.current) {
                     URL.revokeObjectURL(objectUrlRef.current);
                     objectUrlRef.current = null;
