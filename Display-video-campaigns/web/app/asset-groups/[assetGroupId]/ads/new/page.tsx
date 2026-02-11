@@ -159,7 +159,7 @@ export default function NewAdPage({ params }: { params: { assetGroupId: string }
     const allowed = getInputTypesForAdType(newAd.adType);
     if (!allowed.includes(newAd.inputType)) {
       setNewAd((prev) => ({ ...prev, inputType: allowed[0] }));
-      setFile(null);
+     setFile(undefined);
       if (objectUrlRef.current) {
         URL.revokeObjectURL(objectUrlRef.current);
         objectUrlRef.current = null;
