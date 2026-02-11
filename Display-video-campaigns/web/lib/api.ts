@@ -47,7 +47,13 @@ export const api = {
       });
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Network error';
-      throw new ApiError({ detail: `Request failed: ${message}. Is the API running at ${url}?` });
+     throw new ApiError({
+  type: 'about:blank',
+  title: 'Request failed',
+  status: 0,
+  code: 'NETWORK_ERROR',
+  detail: `Request failed: ${message}. Is the API running at ${url}?`,
+});
     }
     if (!response.ok) {
       const text = await response.text();
