@@ -220,7 +220,7 @@ export default function NewAdPage({ params }: { params: { assetGroupId: string }
       objectUrlRef.current = null;
     }
     const f = e.target.files?.[0];
-    setFile(f || null);
+  setFile(f ?? undefined);
     const newUrl = f ? URL.createObjectURL(f) : null;
     objectUrlRef.current = newUrl;
     setObjectUrl(newUrl);
