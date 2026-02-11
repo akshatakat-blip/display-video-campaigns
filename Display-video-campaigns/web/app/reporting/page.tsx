@@ -151,7 +151,7 @@ function generateReportRows(p: {
 
 function getCellValue(row: ReportTableRow, colKey: string): number | null {
   if (colKey in row) {
-    const v = (row as Record<string, number>)[colKey];
+    const v = row[colKey as keyof ReportTableRow];
     return typeof v === 'number' && Number.isFinite(v) ? v : null;
   }
   const calc = getCalculatedValues(row);
