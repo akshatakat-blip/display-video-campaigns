@@ -145,7 +145,7 @@ export default function NewAdPage({ params }: { params: { assetGroupId: string }
     tagText: '',
     trackingTags: ['', '', '', '', ''] as string[],
   });
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File | undefined>(undefined);
   const [objectUrl, setObjectUrl] = useState<string | null>(null);
   const [trackingTagCount, setTrackingTagCount] = useState(1);
   const [landingUrlError, setLandingUrlError] = useState<string | null>(null);
