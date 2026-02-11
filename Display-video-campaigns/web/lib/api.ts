@@ -57,7 +57,13 @@ export const api = {
     }
     if (!response.ok) {
       const text = await response.text();
-      let problemDetails: ProblemDetails = { detail: `HTTP ${response.status}: ${response.statusText}` };
+      let problemDetails: ProblemDetails = {
+  type: 'about:blank',
+  title: response.statusText || 'HTTP error',
+  status: response.status,
+  code: `HTTP_${response.status}`,
+  detail: `HTTP ${response.status}: ${response.statusText}`,
+};
       try {
         const parsed = text ? JSON.parse(text) : null;
         if (parsed && typeof parsed === 'object' && (parsed.detail || parsed.title)) {
